@@ -1,4 +1,4 @@
-name: Deploy to Heroku
+name: Back-End Deploy
 
 on:
   push:
@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '20' # Especifique a versão do Node.js que sua aplicação requer
+        node-version: 20.11.0
 
     - name: Install dependencies
       run: |
@@ -29,15 +29,12 @@ jobs:
         cd packages/back-end
         npm run build
 
-    - name: Setup Heroku Git Remote
-      run: |
-        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git
-
     - name: Deploy to Heroku
-      uses: akhileshns/heroku-deploy@v3.12.12 # Esta é uma action do GitHub para deploy no Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: "short-links-backend" # Substitua pelo nome da sua aplicação no Heroku
-        heroku_email: "jeffersonscjunior@gmail.com" # Substitua pelo seu email cadastrado no Heroku
+        heroku_app_name: "short-links-backend"
+        heroku_email: "jeffersonscjunior@gmail.com"
         usedocker: false
-        appdir: "packages/back-end" # Especifica o diretório da aplicação
+        branch: main
+        appdir: "packages/back-end"
