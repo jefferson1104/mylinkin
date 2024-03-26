@@ -29,6 +29,10 @@ jobs:
         cd packages/back-end
         npm run build
 
+    - name: Setup Heroku Git Remote
+      run: |
+        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git
+
     - name: Deploy to Heroku
       uses: akhileshns/heroku-deploy@v3.12.12 # Esta é uma action do GitHub para deploy no Heroku
       with:
