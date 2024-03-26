@@ -27,10 +27,12 @@ jobs:
       - name: Deploy to Heroku
         run: |
           cd packages/back-end
+          git config user.email "jeffersonscjunior@gmail.com"
+          git config user.name "Jefferson Soares"
           git init
           git add .
           git commit -m "Deploy to Heroku"
           heroku git:remote -a short-links-backend
-          git push heroku main --force
+          git push heroku main:refs/heads/main --force
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
