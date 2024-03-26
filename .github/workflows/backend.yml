@@ -37,7 +37,11 @@ jobs:
           git config --global user.name "Jefferson Soares"
 
       - name: Deploy to Heroku
-        run: |
-          git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "short-links-backend"
+          heroku_email: "jeffersonscjunior@gmail.com"
+          usedocker: false
+          appdir: "packages/back-end"
+          branch: "main"
