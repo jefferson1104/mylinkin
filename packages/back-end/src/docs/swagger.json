@@ -1,0 +1,258 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Short Links API",
+    "description": "A Node.js API to shorten URLs.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "Local server"
+    },
+    {
+      "url": "https://apishortlinks.soaresdev.com",
+      "description": "Production"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Short Links",
+      "description": "Operations related to link management"
+    }
+  ],
+  "paths": {
+    "/api/links": {
+      "post": {
+        "tags": ["Short Links"],
+        "summary": "Create a new short link",
+        "description": "Creates a new short link with the provided code and URL.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "example": "soaresdev"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "example": "https://soaresdev.com"
+                  }
+                },
+                "required": ["code", "url"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Short link created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "shortLinkId": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Duplicated code!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Duplicated code!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Short Links"],
+        "summary": "List all short links",
+        "responses": {
+          "200": {
+            "description": "A list of short links.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 1,
+                    "code": "abc123",
+                    "original_url": "https://www.example.com",
+                    "created_at": "2024-03-25T12:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/metrics": {
+      "get": {
+        "tags": ["Analytics"],
+        "summary": "Retrieve link metrics",
+        "description": "Obtains metrics for the short links, sorted by the number of clicks.",
+        "responses": {
+          "200": {
+            "description": "An array of metrics, each containing a shortLinkId and the number of clicks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "shortLinkId": {
+                        "type": "integer",
+                        "example": 1,
+                        "description": "The ID of the short link."
+                      },
+                      "clicks": {
+                        "type": "integer",
+                        "example": 150,
+                        "description": "The number of times the short link has been clicked."
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "shortLinkId": 1,
+                    "clicks": 150
+                  },
+                  {
+                    "shortLinkId": 2,
+                    "clicks": 75
+                  }
+                ]
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{code}": {
+      "get": {
+        "tags": ["Open Short Link"],
+        "summary": "Redirect to the original URL",
+        "description": "Redirects the user to the original URL associated with the given short link code.",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "description": "The unique code of the short link",
+            "schema": {
+              "type": "string",
+              "minLength": 3
+            }
+          }
+        ],
+        "responses": {
+          "301": {
+            "description": "Found. Redirecting to the original URL."
+          },
+          "400": {
+            "description": "Link not found. No short link matches the given code.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Link not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
