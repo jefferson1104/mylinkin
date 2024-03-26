@@ -38,7 +38,6 @@ jobs:
 
       - name: Deploy to Heroku
         run: |
-          heroku auth:token
-          git push heroku `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
+          git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
