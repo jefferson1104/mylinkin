@@ -35,7 +35,10 @@ jobs:
         run: |
           git config --global user.email "jeffersonscjunior@gmail.com"
           git config --global user.name "Jefferson Soares"
-          git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git
 
       - name: Deploy to Heroku
-        run: git push heroku `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
+        run: |
+          heroku auth:token
+          git push heroku `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
