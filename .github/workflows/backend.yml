@@ -24,19 +24,18 @@ jobs:
       - name: Build
         run: cd packages/back-end && npm run build
 
-      - name: Set up Heroku CLI
+      - name: Set up Heroku
         run: |
           curl https://cli-assets.heroku.com/install.sh | sh
           heroku git:remote -a short-links-backend
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
-      - name: Deploy to Heroku
+      - name: Configuring Git for Heroku
         run: |
           git config --global user.email "jeffersonscjunior@gmail.com"
           git config --global user.name "Jefferson Soares"
-          git add -f packages/back-end/*
-          git commit -m "Deploy"
-          git push heroku `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git
+
+      - name: Deploy to Heroku
+        run: git push heroku `git subtree split --prefix=packages/back-end HEAD`:refs/heads/main --force
