@@ -34,3 +34,12 @@ jobs:
       - name: Deploy to Heroku
         run: |
           git subtree push --prefix packages/back-end heroku main
+
+      - name: Configuring Git for Heroku
+        run: |
+          git config --global user.email "jeffersonscjunior@gmail.com"
+          git config --global user.name "Jefferson Soares"
+          git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/short-links-backend.git
+
+      - name: Deploy to Heroku
+        run: git push heroku `git subtree split --prefix=packages/api HEAD`:refs/heads/main --force
