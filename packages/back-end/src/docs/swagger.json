@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Short Links API",
+    "title": "Doc Short Links API",
     "description": "A Node.js API to shorten URLs.",
     "version": "1.0.0"
   },
