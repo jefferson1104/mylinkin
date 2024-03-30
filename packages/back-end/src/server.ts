@@ -91,10 +91,10 @@ app.post('/api/links', async (request, reply) => {
 
     try {
         const result = await sql`
-            INSERT INTO short_links (code, original_url)
-            VALUES (${code}, ${url})
+            INSERT INTO short_links (code, original_url, clicks)
+            VALUES (${code}, ${url}, 0)
             RETURNING id
-        `
+        `;
 
         const link = result[0]
 

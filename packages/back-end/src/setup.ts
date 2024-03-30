@@ -19,6 +19,7 @@ async function setup() {
                 id SERIAL PRIMARY KEY,
                 code TEXT UNIQUE,
                 original_url TEXT,
+                clicks INT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `
