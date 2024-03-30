@@ -66,7 +66,8 @@ export const Form = () => {
             };
 
             const parsedData = JSON.stringify(data);
-            const endpoint = `${process.env.NEXT_PUBLIC_API}/api/links`;
+            const baseUrl = process.env.NEXT_PUBLIC_API;
+            const endpoint = `${baseUrl}/api/links`;
 
             const options = {
                 method: "POST",
@@ -79,7 +80,7 @@ export const Form = () => {
             const response = await fetch(endpoint, options);
 
             if (response.status === 201) {
-                setShortenedLink(`https://mylinkin.com/${formValues.code}`);
+                setShortenedLink(`${baseUrl}/${formValues.code}`);
                 setIsOpenModal(true);
                 setFormValues(initialValues);
                 return;
