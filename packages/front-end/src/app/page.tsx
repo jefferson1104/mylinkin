@@ -7,6 +7,7 @@ import { Counter } from "./components/Counter/Counter";
 import { Form } from "./components/Form/Form";
 import { Hero } from "./components/Hero/Hero";
 import { Metrics } from "./components/Metrics/Metrics";
+import { ArrowBigDownDash } from "lucide-react";
 
 // HOME PAGE
 export default function Home() {
@@ -32,7 +33,8 @@ export default function Home() {
       <div className="z-10 flex flex-col justify-center items-center mt-24 px-5 xl:px-0">
         <Hero />
 
-        <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-4 xl:grid-cols-3">
+        {/* Create Link & Counter */}
+        <section className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-4 xl:grid-cols-3">
           {cards.map((card, index) => (
             <Card
               key={index}
@@ -42,9 +44,28 @@ export default function Home() {
               component={card.component}
             />
           ))}
-        </div>
+        </section>
 
-        <Metrics />
+        {/* Get in touch & Metrics */}
+        <section className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4 md:grid md:grid-cols-1 xl:grid-cols-3 flex flex-col-reverse">
+          <Card
+            title="Help Us"
+            description="Help MyLinkIn grow, get in touch for suggestions, report a bug, report an improvement, or make a donation to us."
+            component={(
+              <div className="flex flex-col items-center justify-center gap-2">
+                <ArrowBigDownDash className="size-12 text-cyan-600 animate-pulse"/>
+                <a
+                  className="text-2xl text-cyan-600 hover:text-cyan-900 outline-none rounded-md ring-zinc-500 focus-visible:ring-2 transition-all duration-300"
+                  href="https://links.soaresdev.com"
+                  target="_blank"
+                >
+                  links.soaresdev.com
+                </a>
+              </div>
+            )}
+          />
+          <Metrics />
+        </section>
       </div>
 
       {/* Toast Notification */}

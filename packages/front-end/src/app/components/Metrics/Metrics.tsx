@@ -69,23 +69,11 @@ export const Metrics = () => {
 
     /* Renders */
     return (
-        <section className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4 md:grid md:grid-cols-1 xl:grid-cols-3 flex flex-col-reverse">
-            <Card
-                title="Lorem Ipsum"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-                component={(
-                    <div>
-                        <p>Possimus nesciunt</p>
-                    </div>
-                )}
-            />
-
-            <Card
-                title="Top #5"
-                description="This is the ranking of the top 5 most clicked shortened links."
-                large
-                component={isLoading ? renderLoading : renderRanking}
-            />
-        </section>
+        <Card
+            title="Top #5"
+            description="This is the ranking of the top 5 most clicked shortened links."
+            large
+            component={isLoading && !errorLinksMetrics ? renderLoading : renderRanking}
+        />
     );
 };
