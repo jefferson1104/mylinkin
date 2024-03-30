@@ -16,18 +16,19 @@ export const initialValues = {
 
 export const formValidations = (formValues: IForm) => {
     const fieldsValidationSchema = {
-        url: Joi.string().required().trim().uri().min(10).messages({
-                "string.base": "Url must be a string",
-                "string.empty": "You must type an url",
-                "string.min": "The url must be at least 10 characters long",
-                "string.uri": "The url must be a valid url",
-                "any.required": "You must type an url",
+        url: Joi.string().required().trim().uri().min(3).messages({
+                "string.base": "Must be a string",
+                "string.empty": "Must type an url",
+                "string.min": "At least 3 characters",
+                "string.uri": "Must be a valid url",
+                "any.required": "Must type an url",
             }),
-        code: Joi.string().required().trim().min(3).messages({
-            "string.base": "Code must be a string",
-            "string.empty": "You must type a code",
-            "string.min": "The code must be at least 3 characters long",
-            "any.required": "You must type a code",
+        code: Joi.string().required().trim().min(3).max(8).messages({
+            "string.base": "Must be a string",
+            "string.empty": "Must type a code",
+            "string.min": "At least 3 characters",
+            "string.max": "Max 8 characters",
+            "any.required": "Must type a code",
         }),
     };
 

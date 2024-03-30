@@ -6,6 +6,7 @@ import { Card, ICard } from "./components/Card/Card";
 import { Counter } from "./components/Counter/Counter";
 import { Form } from "./components/Form/Form";
 import { Hero } from "./components/Hero/Hero";
+import { Metrics } from "./components/Metrics/Metrics";
 
 // HOME PAGE
 export default function Home() {
@@ -42,6 +43,8 @@ export default function Home() {
             />
           ))}
         </div>
+
+        <Metrics />
       </div>
 
       {/* Toast Notification */}

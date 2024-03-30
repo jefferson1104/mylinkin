@@ -23,6 +23,11 @@ export const Form = () => {
 
     /* Handlers */
     const inputChangeHandler = async (field: string, value: string) => {
+        if (field === 'code') {
+            setFormValues((values) => ({ ...values, [field]: value.toUpperCase() }));
+            return;
+        }
+
         setFormValues((values) => ({ ...values, [field]: value }));
     };
 
@@ -56,12 +61,12 @@ export const Form = () => {
             setIsLoading(true);
 
             const data = {
-                code: formValues.code,
+                code: formValues.code.toUpperCase(),
                 url: formValues.url
             };
 
             const parsedData = JSON.stringify(data);
-            const endpoint = 'https://apishortlinks.soaresdev.com/api/links';
+            const endpoint = `${process.env.NEXT_PUBLIC_API}/api/links`;
 
             const options = {
                 method: "POST",
@@ -108,7 +113,7 @@ export const Form = () => {
                 setIsCopy(false);
             }, 3000);
         }
-    }, [isCopy])
+    }, [isCopy]);
 
     /* Renders */
     return(

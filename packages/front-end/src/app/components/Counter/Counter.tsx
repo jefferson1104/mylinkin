@@ -2,14 +2,23 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// CONTEXTS
+import { useLinks } from '../../contexts/links-context';
+import { CustomError } from "../CustomError/CustomError";
+
 // COUNTER COMPONENT
 export const Counter = () => {
   /* Hooks */
+  const { registeredLinks, errorLinksMetrics } =  useLinks();
+
+  /* States */
   const [count, setCount] = useState(0);
 
   /* Vars */
-  const value = 125;
+  const value = registeredLinks.length;
   const duration = 2500;
+
+  const error = true;
 
   /* Utils */
   const easeOutQuad = (t: number, b: number, c: number, d: number) => {
@@ -36,6 +45,9 @@ export const Counter = () => {
   }, [value, duration]);
 
   /* Renders */
+  if (errorLinksMetrics) {
+    return <CustomError />
+  }
   return (
     <div className="relative h-full w-full">
       <motion.svg
