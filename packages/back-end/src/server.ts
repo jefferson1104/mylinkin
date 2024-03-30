@@ -65,10 +65,10 @@ app.get('/:code', async (request, reply) => {
 
         return reply.redirect(301, link.original_url);
     } catch (error) {
-        console.error(error)
+        console.error('OPEN LINK ERROR: ', error);
         return reply.status(500).send({ message: 'Internal server error.' })
     }
-})
+});
 
 app.get('/api/links', async (_, reply) => {
     try {
@@ -80,18 +80,18 @@ app.get('/api/links', async (_, reply) => {
 
         return result
     } catch (error) {
-        console.error(error)
+        console.error('GET LINKS ERROR: ', error)
         return reply.status(500).send({ message: 'Internal server error.' })
     }
-})
+});
 
 app.post('/api/links', async (request, reply) => {
     const createLinkSchema = z.object({
         code: z.string().min(3),
         url: z.string().url()
-    })
+    });
 
-    const { code, url } = createLinkSchema.parse(request.body)
+    const { code, url } = createLinkSchema.parse(request.body);
 
     try {
         const result = await sql`
@@ -100,24 +100,25 @@ app.post('/api/links', async (request, reply) => {
             RETURNING id
         `;
 
-        const link = result[0]
+        const link = result[0];
 
-        return reply.status(201).send({ shortLinkId: link.id })
+        return reply.status(201).send({ shortLinkId: link.id });
     } catch (error) {
         if (error instanceof postgres.PostgresError) {
             if (error.code === '23505') {
-                return reply.status(400).send({ message: 'Duplicated code!'})
-            }
-        }
+                return reply.status(400).send({ message: 'Duplicated code!'});
+            };
+        };
 
-        console.error(error)
-        return reply.status(500).send({ message: 'Internal server error.' })
+        console.error('CREATE LINK ERROR: ', error)
+
+        return reply.status(500).send({ message: 'Internal server error.' });
     }
-})
+});
 
 app.get('/api/metrics', async (_, reply) => {
     try {
-        const result = await redis.zRangeByScoreWithScores('metrics', 0, 50)
+        const result = await redis.zRangeByScoreWithScores('metrics', 0, 5);
 
         const metrics = result
             .sort((a, b) => b.score - a.score)
@@ -126,14 +127,14 @@ app.get('/api/metrics', async (_, reply) => {
                     shortLinkId: Number(item.value),
                     clicks: item.score
                 }
-            })
+            });
 
         return metrics
     } catch (error) {
-        console.error(error)
-        return reply.status(500).send({ message: 'Internal server error.' })
+        console.error('GET METRICS ERROR: ', error);
+        return reply.status(500).send({ message: 'Internal server error.' });
     }
-})
+});
 
 const start = async () => {
     try {
