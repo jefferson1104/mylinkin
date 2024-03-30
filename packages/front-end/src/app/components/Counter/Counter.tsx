@@ -18,8 +18,6 @@ export const Counter = () => {
   const value = registeredLinks.length;
   const duration = 2500;
 
-  const error = true;
-
   /* Utils */
   const easeOutQuad = (t: number, b: number, c: number, d: number) => {
     t = t > d ? d : t / d;

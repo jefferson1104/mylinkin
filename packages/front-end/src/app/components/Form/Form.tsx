@@ -122,7 +122,7 @@ export const Form = () => {
                 <div className="flex justify-center items-start flex-col xl:flex-row gap-4">
                     <Input
                         inputClassName="w-64 lg:w-96 xl:w-72"
-                        placeholder="E.g: https://yourlink.com"
+                        placeholder="E.g. https://yourlink.com"
                         id="url"
                         name="url"
                         type="url"
@@ -136,7 +136,7 @@ export const Form = () => {
 
                     <Input
                         inputClassName="w-64 lg:w-96 xl:w-44"
-                        placeholder="E.g: MYCODE"
+                        placeholder="E.g. MYCODE"
                         id="code"
                         name="code"
                         type="text"

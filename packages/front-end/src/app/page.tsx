@@ -8,6 +8,7 @@ import { Form } from "./components/Form/Form";
 import { Hero } from "./components/Hero/Hero";
 import { Metrics } from "./components/Metrics/Metrics";
 import { ArrowBigDownDash } from "lucide-react";
+import { AboutUs } from "./components/AboutUs/AboutUs";
 
 // HOME PAGE
 export default function Home() {
@@ -66,6 +67,9 @@ export default function Home() {
           />
           <Metrics />
         </section>
+
+
+        <AboutUs />
       </div>
 
       {/* Toast Notification */}

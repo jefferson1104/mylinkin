@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Hero = () => {
     /* Renders */
     return (
-        <section className="w-full max-w-xl px-5 xl:px-0 cursor-alias">
+        <section className="w-full max-w-xl px-5 xl:px-0">
             <a
             href="https://soaresdev.com"
             target="_blank"
@@ -24,8 +24,8 @@ export const Hero = () => {
             </a>
 
             <h1
-            className="mt-2 animate-fade-up bg-gradient-to-br from-stone-900 to-stone-500 bg-clip-text text-center font-bold font-display text-3xl text-transparent drop-shadow-sm md:text-5xl md:leading-[3rem]"
-            style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+                className="mt-2 animate-fade-up bg-gradient-to-br from-stone-900 to-stone-500 bg-clip-text text-center font-bold font-display text-3xl text-transparent drop-shadow-sm md:text-5xl md:leading-[3rem]"
+                style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
             >
                 Create and customize your own shortened link
             </h1>

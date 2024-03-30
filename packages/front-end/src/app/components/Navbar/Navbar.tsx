@@ -28,7 +28,7 @@ export const Navbar = () => {
         </Link>
 
         <div>
-          <a href="#about" className="text-lg text-zinc-500 hover:text-zinc-300 transition-all duration-300">
+          <a href="/#about" className="text-lg text-zinc-500 hover:text-zinc-300 transition-all duration-300">
             About
           </a>
         </div>
