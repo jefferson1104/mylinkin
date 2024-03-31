@@ -13,7 +13,7 @@ export const Hero = () => {
             className="mx-auto mb-5 flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden rounded-full bg-stone-300 px-7 py-2 transition-all duration-300 hover:bg-stone-200"
             >
                 <Image
-                    src="/soaresdev.svg"
+                    src="/images/soaresdev.svg"
                     alt="Short Links"
                     width={20}
                     height={20}

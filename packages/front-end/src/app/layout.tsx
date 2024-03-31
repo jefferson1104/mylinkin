@@ -9,7 +9,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 const sfPro = localFont({
-  src: "../../public/SF-Pro-Display-Medium.otf",
+  src: "../../public/fonts/SF-Pro-Display-Medium.otf",
   variable: "--font-sf",
 });
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   creator: "Jefferson Soares",
   publisher: "Jefferson Soares",
   robots: { index: true, follow: true },
-  icons: ["/link-icon.svg", "/link-icon.svg"],
+  icons: ["../../public/images/logo.svg", "../../public/images/logo.svg"],
   metadataBase: new URL("https://mylinkin.com"),
   description:
       "The best link shortener, at MyLinIn you can shorten your links, customize and check how many clicks you got.",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
       siteName: "MyLinkIn - Link Shortener",
       images: [
           {
-            url: "/mylinkin-banner.png"
+            url: "../../public/images/banner.png"
           }
       ]
   }
