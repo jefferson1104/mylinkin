@@ -77,7 +77,7 @@ export const LinksProvider = ({ children }: ILinksProviderProps) => {
             dispatch({ type: 'SET_LINKS', payload: links });
             dispatch({ type: 'SET_METRICS', payload: metrics });
         } catch (error) {
-            console.log('fetchData() error: ', error);
+            console.error('fetchData() error: ', error);
             dispatch({type: 'SET_ERROR', payload: true });
             dispatch({ type: 'LOADING_METRICS', payload: false });
             dispatch({ type: 'LOADING_LINKS', payload: false });

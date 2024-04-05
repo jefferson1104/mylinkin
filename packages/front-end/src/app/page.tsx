@@ -9,6 +9,7 @@ import { Hero } from "./components/Hero/Hero";
 import { Metrics } from "./components/Metrics/Metrics";
 import { ArrowBigDownDash } from "lucide-react";
 import { AboutUs } from "./components/AboutUs/AboutUs";
+import { CheckLink } from "./components/CheckLink/CheckLink";
 
 // HOME PAGE
 export default function Home() {
@@ -49,7 +50,7 @@ export default function Home() {
 
         {/* Get in touch & Metrics */}
         <section className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4 md:grid md:grid-cols-1 xl:grid-cols-3 flex flex-col-reverse">
-          <Card
+          {/* <Card
             title="Help Us"
             description="Help MyLinkIn grow, get in touch for suggestions, report a bug, report an improvement, or make a donation to us."
             component={(
@@ -64,7 +65,8 @@ export default function Home() {
                 </a>
               </div>
             )}
-          />
+          /> */}
+          <CheckLink />
           <Metrics />
         </section>
 

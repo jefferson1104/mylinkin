@@ -1,6 +1,7 @@
 "use client";
 import { FormEvent, useEffect, useState } from "react";
 import { Copy } from "lucide-react";
+import Joi from "joi";
 
 // COMPONENTS
 import { Button } from "../Button/Button";
@@ -9,7 +10,18 @@ import { Modal } from "../Modal/Modal";
 
 // UTILS
 import { errorAlert } from "../../utils/alert-notification";
-import { formValidations, initialValues, IForm, IFieldError } from "../../utils/form-validation";
+import { formValidations, IFieldError } from "../../utils/form-validation";
+
+// FORM COMPONENT UTILS
+export interface IForm {
+    code: string;
+    url: string;
+}
+
+export const initialValues = {
+    code: "",
+    url: "",
+}
 
 // FORM COMPONENT
 export const Form = () => {
@@ -49,7 +61,7 @@ export const Form = () => {
             return;
         };
 
-        const errors = formValidations(formValues);
+        const errors = formValidations(formValues, fieldsValidationSchema);
         if (Object.keys(errors).length) {
             setFieldError(errors);
             return;
@@ -107,6 +119,24 @@ export const Form = () => {
         }
     };
 
+    /* Utils */
+    const fieldsValidationSchema = {
+        url: Joi.string().required().trim().uri().min(3).messages({
+            "string.base": "Must be a string",
+            "string.empty": "Must type an url",
+            "string.min": "At least 3 characters",
+            "string.uri": "Must be a valid url",
+            "any.required": "Must type an url",
+        }),
+        code: Joi.string().required().trim().min(3).max(10).messages({
+            "string.base": "Must be a string",
+            "string.empty": "Must type a code",
+            "string.min": "At least 3 characters",
+            "string.max": "Max 10 characters",
+            "any.required": "Must type a code",
+        }),
+    };
+
     /* LifeCycles */
     useEffect(() => {
         if(isCopy) {
@@ -122,8 +152,8 @@ export const Form = () => {
             <form onSubmit={submitHandler} className="animate-fade-up flex flex-col justify-center items-center">
                 <div className="flex justify-center items-start flex-col xl:flex-row gap-4">
                     <Input
-                        inputClassName="w-64 lg:w-96 xl:w-72"
-                        placeholder="E.g. https://yourlink.com"
+                        customClassName="w-64 lg:w-96 xl:w-72"
+                        placeholder="https://yourlink.com"
                         id="url"
                         name="url"
                         type="url"
@@ -136,8 +166,8 @@ export const Form = () => {
                     />
 
                     <Input
-                        inputClassName="w-64 lg:w-96 xl:w-44"
-                        placeholder="E.g. MYCODE"
+                        customClassName="w-64 lg:w-96 xl:w-44"
+                        placeholder="CODE"
                         id="code"
                         name="code"
                         type="text"
@@ -150,6 +180,7 @@ export const Form = () => {
                     />
 
                     <Button
+                        customClassName="xl:w-32"
                         text="Create"
                         type="submit"
                         isLoading={isLoading}

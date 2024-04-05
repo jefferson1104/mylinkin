@@ -29,7 +29,7 @@ export const Metrics = () => {
     );
 
     const tableRanking = (
-        <div className="flex justify-center items-center bg-stone-100 rounded-md py-4 px-8">
+        <div className="flex justify-center items-center border border-cyan-100 bg-cyan-50 rounded-md py-4 px-8">
             <table className="flex flex-col gap-2">
                 <thead className="w-full flex flex-col gap-2">
                     <tr className="flex justify-between w-60 md:w-96 text-sm md:text-base font-bold px-2">
@@ -44,7 +44,7 @@ export const Metrics = () => {
                                 <a
                                     href={`${process.env.NEXT_PUBLIC_API}/${link.code}`}
                                     target="_blank"
-                                    className="px-2 cursor-pointer rounded-md hover:bg-zinc-300 transition-all duration-300"
+                                    className="px-2 cursor-pointer rounded-md hover:bg-cyan-200 transition-all duration-300"
                                 >
                                     {link.code}
                                 </a>
