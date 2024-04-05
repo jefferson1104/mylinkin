@@ -70,35 +70,6 @@ app.get('/:code', async (request, reply) => {
     }
 });
 
-app.get('/api/link/:code', async (request, reply) => {
-    const getLinkSchema = z.object({
-        code: z.string().min(3),
-    });
-
-    const { code } = getLinkSchema.parse(request.params);
-
-    try {
-        const result = await sql`
-            SELECT *
-            FROM short_links
-            WHERE short_links.code =  ${code.toUpperCase()}
-        `;
-
-        if (result.length === 0) {
-            return reply.status(400).send({ message: 'Link not found.' })
-        };
-
-        const link = result[0];
-
-        console.log('LINK =>', link);
-
-        return link;
-    } catch (error) {
-        console.error('GET REGISTERED LINK: ', error);
-        return reply.status(500).send({ message: 'Internal server error.' })
-    }
-});
-
 app.get('/api/links', async (_, reply) => {
     try {
         const result = await sql`
@@ -162,6 +133,33 @@ app.get('/api/metrics', async (_, reply) => {
     } catch (error) {
         console.error('GET METRICS ERROR: ', error);
         return reply.status(500).send({ message: 'Internal server error.' });
+    }
+});
+
+app.post('/api/metrics', async (request, reply) => {
+    const getLinkSchema = z.object({
+        code: z.string().min(3),
+    });
+
+    const { code } = getLinkSchema.parse(request.body);
+
+    try {
+        const result = await sql`
+            SELECT *
+            FROM short_links
+            WHERE short_links.code =  ${code.toUpperCase()}
+        `;
+
+        if (result.length === 0) {
+            return reply.status(400).send({ message: 'Link not found.' })
+        };
+
+        const link = result[0];
+
+        return link;
+    } catch (error) {
+        console.error('GET REGISTERED LINK: ', error);
+        return reply.status(500).send({ message: 'Internal server error.' })
     }
 });
 
