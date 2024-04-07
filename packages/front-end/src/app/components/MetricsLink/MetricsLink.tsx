@@ -16,11 +16,11 @@ import { formatDayMonthYear } from "@/app/utils/date";
 // METRICS LINK COMPONENT UTILS
 interface IMetricsLinkForm {
     code: string;
-}
+};
 
 export const initialValues = {
     code: "",
-}
+};
 
 // METRICS LINK COMPONENT
 export const MetricsLink = () => {

@@ -33,10 +33,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center py-12">
       <div className="z-10 flex flex-col justify-center items-center mt-24 px-5 xl:px-0">
-        <Hero />
+        {/* Hero */}
+        <section id="hero">
+          <Hero />
+        </section>
 
         {/* Create Link & Counter */}
-        <section className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-4 xl:grid-cols-3">
+        <section id="create" className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-4 xl:grid-cols-3">
           {cards.map((card, index) => (
             <Card
               key={index}
@@ -48,8 +51,8 @@ export default function Home() {
           ))}
         </section>
 
-        {/* Get in touch & Metrics */}
-        <section className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4 md:grid md:grid-cols-1 xl:grid-cols-3 flex flex-col-reverse">
+        {/* Metrics */}
+        <section id="metrics" className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4 md:grid md:grid-cols-1 xl:grid-cols-3 flex flex-col-reverse">
           {/* <Card
             title="Help Us"
             description="Help MyLinkIn grow, get in touch for suggestions, report a bug, report an improvement, or make a donation to us."
@@ -70,8 +73,31 @@ export default function Home() {
           <Metrics />
         </section>
 
+        {/* About */}
+        <section id="about">
+          <AboutUs />
+        </section>
 
-        <AboutUs />
+         {/* Get in touch & Metrics */}
+         <section id="getintouch" className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4">
+          <Card
+            title="Help Us"
+            large
+            description="Help MyLinkIn grow, get in touch for suggestions, report a bug, report an improvement, or make a donation to us."
+            component={(
+              <div className="flex flex-col items-center justify-center gap-2">
+                <ArrowBigDownDash className="size-12 text-cyan-600 animate-pulse"/>
+                <a
+                  className="text-2xl text-cyan-600 hover:text-cyan-900 outline-none rounded-md ring-zinc-500 focus-visible:ring-2 transition-all duration-300"
+                  href="https://links.soaresdev.com"
+                  target="_blank"
+                >
+                  links.soaresdev.com
+                </a>
+              </div>
+            )}
+          />
+        </section>
       </div>
 
       {/* Toast Notification */}

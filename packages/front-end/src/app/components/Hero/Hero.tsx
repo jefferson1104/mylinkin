@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Hero = () => {
     /* Renders */
     return (
-        <section className="w-full max-w-xl px-5 xl:px-0">
+        <div className="w-full max-w-xl px-5 xl:px-0">
             <a
             href="https://soaresdev.com"
             target="_blank"
@@ -33,6 +33,6 @@ export const Hero = () => {
             <p className="mt-4 text-sm md:text-base text-center text-zinc-500 animate-fade-up">
                 <span className="font-bold underline">MyLinkIn</span> offers a straightforward solution for creating shortened links. With our platform, you can easily customize your links, share them effortlessly with others, and track the number of clicks they receive.
             </p>
-        </section>
+        </div>
     );
 }
