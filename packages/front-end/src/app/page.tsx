@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ArrowBigDownDash } from "lucide-react";
 
 // COMPONENTS
 import { Card, ICard } from "./components/Card/Card";
@@ -7,9 +8,8 @@ import { Counter } from "./components/Counter/Counter";
 import { Form } from "./components/Form/Form";
 import { Hero } from "./components/Hero/Hero";
 import { Metrics } from "./components/Metrics/Metrics";
-import { ArrowBigDownDash } from "lucide-react";
 import { AboutUs } from "./components/AboutUs/AboutUs";
-import { CheckLink } from "./components/CheckLink/CheckLink";
+import { MetricsLink } from "./components/MetricsLink/MetricsLink";
 
 // HOME PAGE
 export default function Home() {
@@ -66,7 +66,7 @@ export default function Home() {
               </div>
             )}
           /> */}
-          <CheckLink />
+          <MetricsLink />
           <Metrics />
         </section>
 

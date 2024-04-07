@@ -1,5 +1,5 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import Joi from "joi";
 
 // COMPONENTS
@@ -13,8 +13,8 @@ import { errorAlert } from "@/app/utils/alert-notification";
 import { ILinkMetric } from "@/app/interfaces/link";
 import { formatDayMonthYear } from "@/app/utils/date";
 
-// CHECK LINK COMPONENT UTILS
-interface ICheckLinkForm {
+// METRICS LINK COMPONENT UTILS
+interface IMetricsLinkForm {
     code: string;
 }
 
@@ -22,22 +22,20 @@ export const initialValues = {
     code: "",
 }
 
-// CHECK LINK COMPONENT
-export const CheckLink = () => {
+// METRICS LINK COMPONENT
+export const MetricsLink = () => {
     /* States */
-    const [formValues, setFormValues] = useState<ICheckLinkForm>(initialValues);
+    const [formValues, setFormValues] = useState<IMetricsLinkForm>(initialValues);
     const [fieldError, setFieldError] = useState<IFieldError>({});
     const [isLoading, setIsLoading] = useState(false);
-    const [linkMetrics, setLinkMetrics] = useState<ILinkMetric>();
+    const [linkMetrics, setLinkMetrics] = useState<ILinkMetric | null>(null);
 
     /* Handlers */
     const inputChangeHandler = async (field: string, value: string) => {
         setFormValues((values) => ({ ...values, [field]: value }));
     };
 
-    const getLinkMetricsHandler = async (e: FormEvent) => {
-        e.preventDefault();
-
+    const getLinkMetricsHandler = async () => {
         if (isLoading) {
             return;
         };
@@ -98,6 +96,10 @@ export const CheckLink = () => {
         }
     };
 
+    const clearMetricsHandler = () => {
+        setLinkMetrics(null);
+    };
+
     /* Utils */
     const fieldsValidationSchema = {
         code: Joi.string().required().trim().min(3).max(10).messages({
@@ -110,39 +112,43 @@ export const CheckLink = () => {
     };
 
     const renderLinkMetricsForm = (
-        <form onSubmit={getLinkMetricsHandler}>
-            <div className="flex flex-col justify-center items-start gap-4">
-                <Input
-                    customClassName="w-64 lg:w-96 xl:w-44"
-                    placeholder="CODE"
-                    id="code"
-                    name="code"
-                    type="text"
-                    required
-                    value={formValues.code}
-                    errorMessage={fieldError?.code}
-                    onChange={(e) =>
-                        inputChangeHandler("code", e.target.value)
-                    }
-                />
-                <Button
-                    text="Create"
-                    type="submit"
-                    isLoading={false}
-                />
-            </div>
-        </form>
+        <div className="flex flex-col justify-center items-start gap-4">
+            <Input
+                customClassName="w-64 lg:w-96 xl:w-44"
+                placeholder="CODE"
+                id="code"
+                name="code"
+                type="text"
+                required
+                value={formValues.code}
+                errorMessage={fieldError?.code}
+                onChange={(e) =>
+                    inputChangeHandler("code", e.target.value)
+                }
+            />
+            <Button
+                text="Create"
+                type="button"
+                onClick={getLinkMetricsHandler}
+                isLoading={false}
+            />
+        </div>
     );
 
     const renderLinkMetrics = () => {
         const linkCreatedAt = new Date(linkMetrics!.created_at);
-        const formattedDate = linkMetrics && formatDayMonthYear(linkCreatedAt, 'US')
+        const formattedDate = linkMetrics && formatDayMonthYear(linkCreatedAt, 'US');
+
         return (
-            <div className="rounded-md bg-zinc-50 p-4 text-sm max-w-sm break-words flex flex-col gap-2">
-                <p className="font-bold">Created at: <span className="font-normal">{formattedDate}</span></p>
-                <p className="font-bold">Clicks: <span className="font-normal">{linkMetrics?.clicks}</span></p>
-                <p className="font-bold">Code: <span className="font-normal">{linkMetrics?.code}</span></p>
-                <p className="font-bold">Original URL: <span className="font-normal">{linkMetrics?.original_url}</span></p>
+            <div className="flex flex-col gap-2">
+                <div className="rounded-md bg-zinc-50 p-4 text-sm max-w-sm break-words flex flex-col gap-2">
+                    <p className="font-bold">Created at: <span className="font-normal">{formattedDate}</span></p>
+                    <p className="font-bold">Clicks: <span className="font-normal">{linkMetrics?.clicks}</span></p>
+                    <p className="font-bold">Code: <span className="font-normal">{linkMetrics?.code}</span></p>
+                    <p className="font-bold">Original URL: <span className="font-normal">{linkMetrics?.original_url}</span></p>
+                </div>
+
+                <Button type="button" text="Another link" onClick={clearMetricsHandler}  />
             </div>
         );
     }
