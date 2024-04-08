@@ -16,8 +16,8 @@ export default function Home() {
   /* Utils */
   const cards: ICard[] = [
     {
-      title: "A beautiful shortened link to share",
-      description: "Enter your original link and a shortening code, for example 'MYCODE' and create your shortened link.",
+      title: "Simple and fast URL shortener!",
+      description: "Paste the URL to be shortened, and set customizable code for example 'MYCODE', and create your shortened link.",
       large: true,
       component: <Form />
     },

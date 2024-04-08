@@ -5,25 +5,31 @@ import Link from "next/link";
 // COMPONENTS
 import { ToggleTheme } from '../../components/ToggleTheme/ToggleTheme';
 
+// CONTEXTS
+import { useTheme } from "@/app/contexts/theme-context";
+
 // HOOKS
 import useScroll from "../../hooks/use-scroll";
+
 
 // NAVBAR COMPONENT
 export const Navbar = () => {
   /* Hooks */
+  const { theme} = useTheme();
   const scrolled = useScroll(50);
 
   /* Vars */
+  const logo = theme === 'dark' ? '/images/logo-light.svg' : '/images/logo.svg'
   const variableStyles = scrolled ? "backdrop-blur-xl border-b border-light-border bg-light-background/50 dark:bg-dark-background dark:border-dark-border": "bg-white/0"
 
   /* Renders */
   return (
     <nav className={`${variableStyles} fixed top-0 w-full flex justify-center z-30 transition-all`}>
       <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
-        <Link href="/" className="flex items-center font-display text-2xl">
+        <Link href="/" className="flex gap-1 items-center font-display text-2xl">
           <Image
             className="text-white"
-            src="/images/logo.svg"
+            src={logo}
             alt="Short Links"
             width={40}
             height={40}

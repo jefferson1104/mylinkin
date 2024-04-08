@@ -20,7 +20,7 @@ export const ToggleTheme = () => {
     /* Renders */
     return (
         <SwitchRadix.Root
-            className="w-11 h-6 rounded-full relative shadow-lg bg-dark-text dark:bg-light-text"
+            className="w-11 h-6 rounded-full relative shadow-xl bg-dark-text dark:bg-light-text"
             checked={isChecked}
             onCheckedChange={toggleSwitch}
         >

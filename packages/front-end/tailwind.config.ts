@@ -11,18 +11,18 @@ const config: Config = {
     extend: {
       colors: {
         // light theme colors
-        'light-background': 'rgb(248 250 252)',
-        'light-title': 'rgb(9 9 11)',
-        'light-text': 'rgb(113 113 122)',
-        'light-border': 'rgb(229 231 235)',
-        'light-placeholder': 'rgb(161 161 170)',
+        'light-background': '#e2e8f0',
+        'light-title': '#09090b',
+        'light-text': '#717179',
+        'light-border': '#cbd5e1',
+        'light-placeholder': '#a1a1aa',
 
         // dark theme colors
-        'dark-background': 'rgb(24 24 27)',
-        'dark-title': 'rgb(226 232 240)',
-        'dark-text': 'rgb(203 213 225)',
-        'dark-border': 'rgb(63 63 70)',
-        'dark-placeholder': 'rgb(82 82 91)',
+        'dark-background': '#18181b',
+        'dark-title': '#e2e8f0',
+        'dark-text': '#cbd5e1',
+        'dark-border': '#27272a',
+        'dark-placeholder': '#52525b',
       },
       fontFamily: {
         display: ["var(--font-sf)", "system-ui", "sans-serif"],

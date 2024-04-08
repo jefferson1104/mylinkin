@@ -2,14 +2,22 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// COMPONENTS
+import { CustomError } from "../CustomError/CustomError";
+
 // CONTEXTS
 import { useLinks } from '../../contexts/links-context';
-import { CustomError } from "../CustomError/CustomError";
+import { useTheme } from '../../contexts/theme-context';
 
 // COUNTER COMPONENT
 export const Counter = () => {
   /* Hooks */
   const { registeredLinks, errorLinksMetrics } =  useLinks();
+  const { theme } = useTheme();
+
+  /* Vars */
+  const fillColor = theme === 'dark' ? 'rgb(113 113 122)' : '#c0e9f1';
+  const strokeColor = theme === 'dark' ? 'rgb(63 63 70)' : '#06B6D4';
 
   /* States */
   const [count, setCount] = useState(0);
@@ -67,11 +75,11 @@ export const Counter = () => {
           cx="50"
           cy="50"
           r="45"
-          fill="#c0e9f1"
-          stroke="#06B6D4"
+          fill={fillColor}
+          stroke={strokeColor}
         />
       </motion.svg>
-      <p className="absolute inset-0 mx-auto flex items-center justify-center font-display text-5xl text-cyan-500">
+      <p className="absolute inset-0 mx-auto flex items-center justify-center font-display text-5xl text-cyan-500 dark:text-dark-title">
         {Intl.NumberFormat().format(count)}
       </p>
     </div>
