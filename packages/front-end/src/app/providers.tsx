@@ -1,13 +1,22 @@
 'use client';
 import { ReactNode } from "react";
-import { LinksProvider } from "./contexts/links-context";
 
+// CONTEXTS
+import { LinksProvider } from "./contexts/links-context";
+import { ThemeProvider } from './contexts/theme-context';
+
+// PROVIDERS UTILS
 interface IProviders {
   children: ReactNode;
 };
 
+// PROVIDERS
 export function Providers({ children }: IProviders) {
   return (
-    <LinksProvider>{children}</LinksProvider>
+    <ThemeProvider>
+      <LinksProvider>
+        {children}
+      </LinksProvider>
+    </ThemeProvider>
   );
 }

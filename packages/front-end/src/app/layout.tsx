@@ -81,7 +81,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} ${sfPro.variable}`}>
         <Providers>
-          <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
+          <div className="fixed h-screen w-full bg-light-background dark:bg-dark-background" />
           <Navbar />
           {children}
         </Providers>

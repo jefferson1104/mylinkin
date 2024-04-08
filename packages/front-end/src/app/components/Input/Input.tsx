@@ -19,7 +19,7 @@ export const Input = ({ id, name, errorMessage, customClassName, ...props }: IIn
     return (
         <div className="relative">
             <input
-                className={`${customClassName} ${variableStyles} block p-2 h-10 text-sm border rounded-lg outline-none text-zinc-700 placeholder-zinc-400 hover:ring-2 focus-visible:ring-2 transition-all duration-300`}
+                className={`${customClassName} ${variableStyles} block p-2 h-10 text-sm border border-light-border dark:border-dark-border rounded-lg outline-none bg-transparent text-light-title dark:text-dark-title placeholder-light-placeholder dark:placeholder-dark-placeholder hover:ring-2 focus-visible:ring-2 transition-all duration-300`}
                 id={id}
                 name={name}
                 {...props}

@@ -6,12 +6,23 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        // light theme colors
+        'light-background': 'rgb(248 250 252)',
+        'light-title': 'rgb(9 9 11)',
+        'light-text': 'rgb(113 113 122)',
+        'light-border': 'rgb(229 231 235)',
+        'light-placeholder': 'rgb(161 161 170)',
+
+        // dark theme colors
+        'dark-background': 'rgb(24 24 27)',
+        'dark-title': 'rgb(226 232 240)',
+        'dark-text': 'rgb(203 213 225)',
+        'dark-border': 'rgb(63 63 70)',
+        'dark-placeholder': 'rgb(82 82 91)',
       },
       fontFamily: {
         display: ["var(--font-sf)", "system-ui", "sans-serif"],
@@ -20,9 +31,6 @@ const config: Config = {
         // Fade up and down
         "fade-up": "fade-up 0.5s",
         "fade-down": "fade-down 0.5s",
-        // Tooltip
-        "slide-up-fade": "slide-up-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-down-fade": "slide-down-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         // Fade up and down
@@ -51,15 +59,6 @@ const config: Config = {
             opacity: "1",
             transform: "translateY(0px)",
           },
-        },
-        // Tooltip
-        "slide-up-fade": {
-          "0%": { opacity: "0", transform: "translateY(6px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "slide-down-fade": {
-          "0%": { opacity: "0", transform: "translateY(-6px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
     },
