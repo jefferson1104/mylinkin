@@ -92,7 +92,7 @@ export const Form = () => {
             const response = await fetch(endpoint, options);
 
             if (response.status === 201) {
-                setShortenedLink(`${baseUrl}/${formValues.code}`);
+                setShortenedLink(`mylinkin.com/${formValues.code}`);
                 setIsOpenModal(true);
                 setFormValues(initialValues);
                 return;
