@@ -42,7 +42,7 @@ export const Metrics = () => {
                         <tr key={link.code} className="flex justify-between w-60 md:w-96 text-xs md:text-sm text-light-text dark:text-dark-text">
                             <td>
                                 <a
-                                    href={`${process.env.NEXT_PUBLIC_API}/${link.code}`}
+                                    href={`https://mylinkin.com/${link.code}`}
                                     target="_blank"
                                     className="px-2 cursor-pointer rounded-md hover:bg-cyan-200 dark:hover:bg-dark-placeholder transition-all duration-300"
                                 >
