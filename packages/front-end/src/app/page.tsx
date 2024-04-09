@@ -10,6 +10,7 @@ import { Hero } from "./components/Hero/Hero";
 import { Metrics } from "./components/Metrics/Metrics";
 import { AboutUs } from "./components/AboutUs/AboutUs";
 import { MetricsLink } from "./components/MetricsLink/MetricsLink";
+import { Navbar } from "./components/Navbar/Navbar";
 
 // HOME PAGE
 export default function Home() {
@@ -32,6 +33,9 @@ export default function Home() {
   /* Renders */
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center py-12">
+      <Navbar />
+
+      {/* Page Content */}
       <div className="z-10 flex flex-col justify-center items-center mt-24 px-5 xl:px-0">
         {/* Hero */}
         <section id="hero">

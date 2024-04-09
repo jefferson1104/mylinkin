@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
-import { Navbar } from "./components/Navbar/Navbar";
 import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -82,7 +81,6 @@ export default function RootLayout({
       <body className={`${inter.className} ${sfPro.variable}`}>
         <Providers>
           <div className="fixed h-screen w-full bg-light-background dark:bg-dark-background" />
-          <Navbar />
           {children}
         </Providers>
       </body>
