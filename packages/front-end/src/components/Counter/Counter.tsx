@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // COMPONENTS
-import { CustomError } from "../CustomError/CustomError";
+import { CustomError } from "@/components/CustomError/CustomError";
 
 // CONTEXTS
-import { useLinks } from '../../contexts/links-context';
-import { useTheme } from '../../contexts/theme-context';
+import { useLinks } from "@/contexts/links-context";
+import { useTheme } from "@/contexts/theme-context";
 
 // COUNTER COMPONENT
 export const Counter = () => {

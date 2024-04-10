@@ -2,14 +2,14 @@
 import { LoaderCircle } from "lucide-react";
 
 // COMPONENTS
-import { Card } from "../Card/Card";
-import { CustomError } from "../CustomError/CustomError";
+import { Card } from "@/components/Card/Card";
+import { CustomError } from "@/components/CustomError/CustomError";
 
 // CONTEXTS
-import { useLinks } from "@/app/contexts/links-context";
+import { useLinks } from "@/contexts/links-context";
 
 // UTILS
-import { createMetricLinks } from "@/app/utils/create-metric-links";
+import { createMetricLinks } from "@/utils/create-metric-links";
 
 // METRICS COMPONENT
 export const Metrics = () => {

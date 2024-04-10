@@ -4,7 +4,7 @@ import { Drawer } from "vaul";
 import * as Dialog from "@radix-ui/react-dialog";
 
 // HOOKS
-import useMediaQuery from "../../hooks/use-media-query";
+import useMediaQuery from "@/hooks/use-media-query";
 
 // MODAL COMPONENT INTERFACES
 interface IModalProps {

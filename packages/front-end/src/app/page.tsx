@@ -1,16 +1,16 @@
+import { ArrowBigDownDash } from "lucide-react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ArrowBigDownDash } from "lucide-react";
 
 // COMPONENTS
-import { Card, ICard } from "./components/Card/Card";
-import { Counter } from "./components/Counter/Counter";
-import { Form } from "./components/Form/Form";
-import { Hero } from "./components/Hero/Hero";
-import { Metrics } from "./components/Metrics/Metrics";
-import { AboutUs } from "./components/AboutUs/AboutUs";
-import { MetricsLink } from "./components/MetricsLink/MetricsLink";
-import { Navbar } from "./components/Navbar/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
+import { Hero } from "@/components/Hero/Hero";
+import { Card, ICard } from "@/components/Card/Card";
+import { MetricsLink } from "@/components/MetricsLink/MetricsLink";
+import { Metrics } from "@/components/Metrics/Metrics";
+import { AboutUs } from "@/components/AboutUs/AboutUs";
+import { Form } from "@/components/Form/Form";
+import { Counter } from "@/components/Counter/Counter";
 
 // HOME PAGE
 export default function Home() {
@@ -57,22 +57,6 @@ export default function Home() {
 
         {/* Metrics */}
         <section id="metrics" className="my-1 md:my-10 w-full max-w-screen-xl animate-fade-up gap-4 md:grid md:grid-cols-1 xl:grid-cols-3 flex flex-col-reverse">
-          {/* <Card
-            title="Help Us"
-            description="Help MyLinkIn grow, get in touch for suggestions, report a bug, report an improvement, or make a donation to us."
-            component={(
-              <div className="flex flex-col items-center justify-center gap-2">
-                <ArrowBigDownDash className="size-12 text-cyan-600 animate-pulse"/>
-                <a
-                  className="text-2xl text-cyan-600 hover:text-cyan-900 outline-none rounded-md ring-zinc-500 focus-visible:ring-2 transition-all duration-300"
-                  href="https://links.soaresdev.com"
-                  target="_blank"
-                >
-                  links.soaresdev.com
-                </a>
-              </div>
-            )}
-          /> */}
           <MetricsLink />
           <Metrics />
         </section>

@@ -1,4 +1,4 @@
-import { ILink, ILinkMetric, ISimpleLinkMetric } from "../interfaces/link";
+import { ILink, ILinkMetric, ISimpleLinkMetric } from "@/interfaces/link";
 
 export const createMetricLinks = (links: ILink[], metrics: ISimpleLinkMetric[]) => {
     const metricMap = new Map<number, number>(metrics.map(item => [item.shortLinkId, item.clicks]));

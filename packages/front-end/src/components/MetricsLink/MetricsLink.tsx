@@ -3,15 +3,15 @@ import { useState } from "react";
 import Joi from "joi";
 
 // COMPONENTS
-import { Card } from "../Card/Card"
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
+import { Card } from "@/components/Card/Card"
+import { Button } from "@/components/Button/Button";
+import { Input } from "@/components/Input/Input";
 
 // UTILS
-import { IFieldError, formValidations } from "@/app/utils/form-validation";
-import { errorAlert } from "@/app/utils/alert-notification";
-import { ILinkMetric } from "@/app/interfaces/link";
-import { formatDayMonthYear } from "@/app/utils/date";
+import { IFieldError, formValidations } from "@/utils/form-validation";
+import { errorAlert } from "@/utils/alert-notification";
+import { ILinkMetric } from "@/interfaces/link";
+import { formatDayMonthYear } from "@/utils/date";
 
 // METRICS LINK COMPONENT UTILS
 interface IMetricsLinkForm {

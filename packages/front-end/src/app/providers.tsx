@@ -2,8 +2,8 @@
 import { ReactNode } from "react";
 
 // CONTEXTS
-import { LinksProvider } from "./contexts/links-context";
-import { ThemeProvider } from './contexts/theme-context';
+import { LinksProvider } from "@/contexts/links-context";
+import { ThemeProvider } from "@/contexts/theme-context";
 
 // PROVIDERS UTILS
 interface IProviders {

@@ -3,7 +3,7 @@ import { Moon, Sun } from 'lucide-react';
 import * as SwitchRadix from '@radix-ui/react-switch';
 
 // CONTEXTS
-import { useTheme } from '../../contexts/theme-context';
+import { useTheme } from '@/contexts/theme-context';
 
 // TOGGLE THEME COMPONENT
 export const ToggleTheme = () => {

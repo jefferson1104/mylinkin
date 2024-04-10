@@ -4,13 +4,13 @@ import { Copy } from "lucide-react";
 import Joi from "joi";
 
 // COMPONENTS
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
-import { Modal } from "../Modal/Modal";
+import { Button } from "@/components/Button/Button";
+import { Input } from "@/components/Input/Input";
+import { Modal } from "@/components/Modal/Modal";
 
 // UTILS
-import { errorAlert } from "../../utils/alert-notification";
-import { formValidations, IFieldError } from "../../utils/form-validation";
+import { errorAlert } from "@/utils/alert-notification";
+import { formValidations, IFieldError } from "@/utils/form-validation";
 
 // FORM COMPONENT UTILS
 export interface IForm {
@@ -187,6 +187,7 @@ export const Form = () => {
                     />
                 </div>
             </form>
+
             <Modal showModal={isOpenModal} setShowModal={setIsOpenModal}>
                 <div className="p-8 h-48 md:h-40 flex flex-col items-center gap-4">
                     <h2 className="text-center font-bold text-lg text-cyan-600">Link created successfully</h2>

@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
+// THEME PROVIDER UTILS
 type Theme = 'light' | 'dark';
 
 type ThemeContextType = {
@@ -16,6 +17,7 @@ const ThemeContext = createContext<ThemeContextType>(defaultState);
 
 export const useTheme = () => useContext(ThemeContext);
 
+// THEME PROVIDER
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('light');
 

@@ -1,7 +1,7 @@
 "use client";
 
 // CONTEXTS
-import { useTheme } from "@/app/contexts/theme-context";
+import { useTheme } from "@/contexts/theme-context";
 
 // ABOUT US COMPONENT
 export const AboutUs = () => {

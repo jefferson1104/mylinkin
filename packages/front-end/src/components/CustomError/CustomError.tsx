@@ -1,10 +1,12 @@
 import { OctagonAlert } from "lucide-react"
 
+// CUSTOM ERROR UTILS
 interface ICustomError {
     title?: string;
     description?: string;
 }
 
+// CUSTOM ERROR COMPONENT
 export const CustomError = ({ title, description }: ICustomError) => {
     return (
         <div className="flex flex-col gap-2 items-center">

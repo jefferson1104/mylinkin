@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// USE MEDIA QUERY HOOK
 export default function useMediaQuery() {
   const [device, setDevice] = useState<"mobile" | "tablet" | "desktop" | null>(
     null,

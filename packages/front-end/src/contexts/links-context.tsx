@@ -2,7 +2,7 @@
 import { createContext, useContext, ReactNode, useEffect, useReducer } from 'react';
 
 // INTERFACES
-import { ILink, ISimpleLinkMetric } from '../interfaces/link';
+import { ILink, ISimpleLinkMetric } from '@/interfaces/link';
 
 // LINKS PROVIDER UTILS
 interface ILinksState {

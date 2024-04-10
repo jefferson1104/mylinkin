@@ -3,14 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 // COMPONENTS
-import { ToggleTheme } from '../../components/ToggleTheme/ToggleTheme';
+import { ToggleTheme } from '@/components/ToggleTheme/ToggleTheme';
 
 // CONTEXTS
-import { useTheme } from "@/app/contexts/theme-context";
+import { useTheme } from "@/contexts/theme-context";
 
 // HOOKS
-import useScroll from "../../hooks/use-scroll";
-
+import useScroll from "@/hooks/use-scroll";
 
 // NAVBAR COMPONENT
 export const Navbar = () => {

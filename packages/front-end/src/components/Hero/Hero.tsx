@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 // CONTEXTS
-import { useTheme } from "@/app/contexts/theme-context";
+import { useTheme } from "@/contexts/theme-context";
 
 // HERO COMPONENT
 export const Hero = () => {
