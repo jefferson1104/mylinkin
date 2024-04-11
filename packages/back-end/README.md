@@ -1,6 +1,6 @@
 <div align="center" style="margin-bottom: 20px;">
   <div>
-    <h1>SHORT LINKS</h1>
+    <h1>MyLinkIn API</h1>
   </div>
 
   <div align="center">
@@ -30,12 +30,6 @@ This project provides a URL shortening service, allowing you to transform long l
 ## :cyclone: Run this project
 
 ```bash
-# Clone this project
-$ git clone https://github.com/jefferson1104/short-links-api.git
-
-# Project directory
-$ cd short-links
-
 # Install dependencies
 $ npm install
 

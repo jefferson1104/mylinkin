@@ -56,7 +56,9 @@ export const metadata: Metadata = {
       "encurtar url",
       "links curtos",
       "url encurtada",
-      "links encurtados"
+      "links encurtados",
+      "mylinkin",
+      "my link in"
   ],
   openGraph: {
       type: "website",

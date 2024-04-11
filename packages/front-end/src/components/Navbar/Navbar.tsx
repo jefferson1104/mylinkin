@@ -36,7 +36,7 @@ export const Navbar = ({ text }: INavbar) => {
           <Image
             className="text-white"
             src={logo}
-            alt="Short Links"
+            alt="MyLinkIn"
             width={40}
             height={40}
           />
