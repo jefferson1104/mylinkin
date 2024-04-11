@@ -30,7 +30,7 @@ export const Hero = ({ title, description, developer }: IHero) => {
             >
                 <Image
                     src="/images/soaresdev.svg"
-                    alt="Short Links"
+                    alt="soaresdev logo"
                     width={20}
                     height={20}
                 />

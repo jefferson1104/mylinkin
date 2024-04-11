@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   creator: "Jefferson Soares",
   publisher: "Jefferson Soares",
   robots: { index: true, follow: true },
-  icons: ["/images/logo.svg", "/images/logo.svg"],
+  icons: ["/images/logo-light.svg", "/images/logo-light.svg"],
   metadataBase: new URL("https://mylinkin.com"),
   description:
       "The best link shortener, at MyLinIn you can shorten your links, customize and check how many clicks you got.",
@@ -55,7 +55,9 @@ export const metadata: Metadata = {
       "encurtar url",
       "links curtos",
       "url encurtada",
-      "links encurtados"
+      "links encurtados",
+      "mylinkin",
+      "my link in"
   ],
   openGraph: {
       type: "website",
