@@ -1,10 +1,9 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-
-import { Providers } from "./providers";
-import RedirectPage from "../redirect/page";
+import { redirect } from 'next/navigation'
+import { Providers } from "../providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -80,18 +79,10 @@ export default function RootLayout({
   children: React.ReactNode,
   params: { locale: string }
 }>) {
+  const baseURL = process.env.NEXT_PUBLIC_API;
 
   if (locale.length > 2) {
-    return (
-      <html lang="en">
-        <body className={`${inter.className} ${sfPro.variable}`}>
-          <Providers>
-            <div className="fixed h-screen w-full bg-light-background dark:bg-dark-background" />
-              <RedirectPage code={locale} />
-          </Providers>
-        </body>
-      </html>
-    );
+    redirect(`${baseURL}/${locale}`)
   };
 
   return (
