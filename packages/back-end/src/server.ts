@@ -15,7 +15,7 @@ import { redis } from './lib/redis'
 const app = fastify()
 
 app.register(cors, {
-    origin: true,
+    origin: ['https://mylinkin.com', 'mylinkin.com', 'localhost:3000', 'localhost' ],
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
