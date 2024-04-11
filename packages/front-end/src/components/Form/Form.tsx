@@ -185,7 +185,7 @@ export const Form = ({
                     <Input
                         customClassName="w-64 lg:w-96 xl:w-72"
                         placeholder={inputUrlPlaceholder}
-                        id="url"
+                        id="createUrl"
                         name="url"
                         type="url"
                         value={formValues.url}
@@ -198,7 +198,7 @@ export const Form = ({
                     <Input
                         customClassName="w-64 lg:w-96 xl:w-44"
                         placeholder={inputCodePlaceholder}
-                        id="code"
+                        id="createCode"
                         name="code"
                         type="text"
                         value={formValues.code}
@@ -209,6 +209,8 @@ export const Form = ({
                     />
 
                     <Button
+                        id="createLinkButton"
+                        aria-label="create link"
                         customClassName="xl:w-32"
                         text={buttonText}
                         type="submit"

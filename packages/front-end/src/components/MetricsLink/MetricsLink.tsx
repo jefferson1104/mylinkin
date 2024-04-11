@@ -136,7 +136,7 @@ export const MetricsLink = ({
             <Input
                 customClassName="w-64 lg:w-96 xl:w-44"
                 placeholder="CODE"
-                id="code"
+                id="checkCode"
                 name="code"
                 type="text"
                 required
@@ -147,10 +147,12 @@ export const MetricsLink = ({
                 }
             />
             <Button
-                text={buttonText}
+                id="checkLinkButton"
+                aria-label="check link"
                 type="button"
+                text={buttonText}
                 onClick={getLinkMetricsHandler}
-                isLoading={false}
+                isLoading={isLoading}
             />
         </div>
     );
