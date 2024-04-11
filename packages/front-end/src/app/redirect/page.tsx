@@ -2,10 +2,15 @@
 import { useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
 
-export default function Page({ params }: { params: { code: string } }) {
+// REDIRECT PAGE UTILS
+interface IRedirectPage {
+  code: string;
+}
+
+// REDIRECT PAGE
+export default function Redirect({ code }: IRedirectPage) {
   /* Vars */
   const baseURL = process.env.NEXT_PUBLIC_API;
-  const code = params.code;
 
   /* LifeCycles */
   useEffect(() => {

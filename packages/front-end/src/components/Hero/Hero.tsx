@@ -4,8 +4,15 @@ import Image from "next/image";
 // CONTEXTS
 import { useTheme } from "@/contexts/theme-context";
 
+// HERO COMPONENT UTILS
+interface IHero {
+    title: string;
+    description: string;
+    developer: string;
+}
+
 // HERO COMPONENT
-export const Hero = () => {
+export const Hero = ({ title, description, developer }: IHero) => {
     /* Hooks */
     const { theme } = useTheme();
 
@@ -28,7 +35,7 @@ export const Hero = () => {
                     height={20}
                 />
                 <p className="text-sm font-semibold text-light-text dark:text-dark-text">
-                    Developed By SoaresDev
+                    {developer}
                 </p>
             </a>
 
@@ -36,11 +43,11 @@ export const Hero = () => {
                 className={`mt-2 animate-fade-up bg-clip-text ${titleStyles} text-center font-bold font-display text-3xl text-transparent drop-shadow-sm md:text-5xl md:leading-[3rem]`}
                 style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
             >
-                Create and customize your own shortened link
+                {title}
             </h1>
 
             <p className="mt-4 text-sm md:text-base text-center text-light-text animate-fade-up">
-                <span className="font-bold underline">MyLinkIn</span> is a free tool to shorten URLs and generate short links. Allows you to create a shortened link making it easy to share and tracking the number of clicks received.
+                <span className="font-bold underline">MyLinkIn</span> {description}
             </p>
         </div>
     );

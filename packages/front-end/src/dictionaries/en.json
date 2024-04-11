@@ -1,0 +1,63 @@
+{
+    "Navbar": {
+        "about": "About"
+    },
+    "Hero": {
+        "title": "Create and customize your own shortened link",
+        "description": "is a free tool to shorten URLs and generate short links. Allows you to create a shortened link making it easy to share and tracking the number of clicks received",
+        "developer": "Developed by SoaresDev"
+    },
+    "Form": {
+        "title": "Simple and fast URL shortener!",
+        "description": "Paste the URL to be shortened, and set customizable code for example 'CODE', and create your shortened link",
+        "inputUrlPlaceholder": "https://yourlink.com",
+        "inputCodePlaceholder": "CODE",
+        "buttonText": "Create",
+        "successMessage": "Link created successfully",
+        "copyMessage": "Copied !!!",
+        "urlFieldValidationMessages": {
+            "stringBase": "Must be a string",
+            "stringEmpty": "Must type an url",
+            "stringMin": "At least 3 characters",
+            "stringUri": "Must be a valid url",
+            "anyRequired": "Must type an url"
+        },
+        "codeFieldValidationMessages": {
+            "stringBase": "Must be a string",
+            "stringEmpty": "Must type a code",
+            "stringMin": "At least 3 characters",
+            "stringMax": "Max 10 characters",
+            "anyRequired": "Must type a code"
+        }
+    },
+    "Counter": {
+        "description": "This is the number of shortened links we have in our database"
+    },
+    "MetricsLink": {
+        "title": "Check Link",
+        "description": "You can see how many clicks the link got, when it was created, and what the original url is",
+        "buttonText": "Check",
+        "buttonText2": "Check Another",
+        "createdAt": "Created At",
+        "clicks": "Clicks",
+        "code": "Code",
+        "originalUrl": "Original URL"
+    },
+    "Metrics": {
+        "title": "Top #5",
+        "description": "This is the ranking of the top 5 most clicked shortened links",
+        "tableHeader": "CODE",
+        "tableHeader2": "CLICKS",
+        "emptyMessage": "No links listed in the ranking"
+    },
+    "About": {
+        "title": "About Us",
+        "description": "MyLinkIn has been carefully developed with state-of-the-art technologies to facilitate the sharing of important links. Our goal is to make this process simple, fast, and efficient, offering personalized and shortened links, perfect for sharing on social media and the internet in general.",
+        "description2": "Furthermore, we prioritize performance analysis. We provide detailed metrics so you can track how many clicks your shared links have received. A major concern with similar services is the maintenance of shortened links. At MyLinkIn, we ensure the reliability and stability of your links so you won't encounter any unpleasant surprises.",
+        "description3": "Enjoy MyLinkIn, a tool created with objectivity, simplicity, and, above all, reliability."
+    },
+    "ContactUs": {
+        "title": "Contact Us",
+        "description": "Help MyLinkIn grow, get in touch for suggestions, report a bug, report an improvement, or make a donation to us"
+    }
+}

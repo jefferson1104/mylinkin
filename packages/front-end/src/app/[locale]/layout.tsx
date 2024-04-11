@@ -4,11 +4,12 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import { Providers } from "./providers";
+import RedirectPage from "../redirect/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const sfPro = localFont({
-  src: "../../public/fonts/SF-Pro-Display-Medium.otf",
+  src: "../../../public/fonts/SF-Pro-Display-Medium.otf",
   variable: "--font-sf",
 });
 
@@ -70,14 +71,29 @@ export const metadata: Metadata = {
       ]
   }
 };
-
 export default function RootLayout({
   children,
+  params: { locale }
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode,
+  params: { locale: string }
 }>) {
+
+  if (locale.length > 2) {
+    return (
+      <html lang="en">
+        <body className={`${inter.className} ${sfPro.variable}`}>
+          <Providers>
+            <div className="fixed h-screen w-full bg-light-background dark:bg-dark-background" />
+              <RedirectPage code={locale} />
+          </Providers>
+        </body>
+      </html>
+    );
+  };
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${inter.className} ${sfPro.variable}`}>
         <Providers>
           <div className="fixed h-screen w-full bg-light-background dark:bg-dark-background" />

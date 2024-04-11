@@ -14,6 +14,30 @@ import { formValidations, IFieldError } from "@/utils/form-validation";
 
 // FORM COMPONENT UTILS
 export interface IForm {
+    inputUrlPlaceholder: string;
+    inputCodePlaceholder: string;
+    buttonText: string;
+    successMessage: string;
+    copyMessage: string;
+    fieldsValidationMessages: {
+        url: {
+            stringBase: string;
+            stringEmpty: string;
+            stringMin: string;
+            stringUri: string;
+            anyRequired: string;
+        },
+        code: {
+            stringBase: string;
+            stringEmpty: string;
+            stringMin: string;
+            stringMax: string;
+            anyRequired: string;
+        };
+    }
+}
+
+export interface IFormValues {
     code: string;
     url: string;
 }
@@ -24,9 +48,16 @@ export const initialValues = {
 }
 
 // FORM COMPONENT
-export const Form = () => {
+export const Form = ({
+    inputUrlPlaceholder,
+    inputCodePlaceholder,
+    buttonText,
+    successMessage,
+    copyMessage,
+    fieldsValidationMessages,
+}: IForm) => {
     /* States */
-    const [formValues, setFormValues] = useState<IForm>(initialValues);
+    const [formValues, setFormValues] = useState<IFormValues>(initialValues);
     const [fieldError, setFieldError] = useState<IFieldError>({});
     const [isLoading, setIsLoading] = useState(false);
     const [isCopy, setIsCopy] = useState(false);
@@ -122,18 +153,18 @@ export const Form = () => {
     /* Utils */
     const fieldsValidationSchema = {
         url: Joi.string().required().trim().uri().min(3).messages({
-            "string.base": "Must be a string",
-            "string.empty": "Must type an url",
-            "string.min": "At least 3 characters",
-            "string.uri": "Must be a valid url",
-            "any.required": "Must type an url",
+            "string.base": fieldsValidationMessages.url.stringBase,
+            "string.empty": fieldsValidationMessages.url.stringEmpty,
+            "string.min": fieldsValidationMessages.url.stringMin,
+            "string.uri": fieldsValidationMessages.url.stringUri,
+            "any.required": fieldsValidationMessages.url.anyRequired,
         }),
         code: Joi.string().required().trim().min(3).max(10).messages({
-            "string.base": "Must be a string",
-            "string.empty": "Must type a code",
-            "string.min": "At least 3 characters",
-            "string.max": "Max 10 characters",
-            "any.required": "Must type a code",
+            "string.base": fieldsValidationMessages.code.stringBase,
+            "string.empty": fieldsValidationMessages.code.stringEmpty,
+            "string.min": fieldsValidationMessages.code.stringMin,
+            "string.max": fieldsValidationMessages.code.stringMax,
+            "any.required": fieldsValidationMessages.code.anyRequired,
         }),
     };
 
@@ -153,11 +184,10 @@ export const Form = () => {
                 <div className="flex justify-center items-start flex-col xl:flex-row gap-4">
                     <Input
                         customClassName="w-64 lg:w-96 xl:w-72"
-                        placeholder="https://yourlink.com"
+                        placeholder={inputUrlPlaceholder}
                         id="url"
                         name="url"
                         type="url"
-                        required
                         value={formValues.url}
                         errorMessage={fieldError?.url}
                         onChange={(e) =>
@@ -167,11 +197,10 @@ export const Form = () => {
 
                     <Input
                         customClassName="w-64 lg:w-96 xl:w-44"
-                        placeholder="CODE"
+                        placeholder={inputCodePlaceholder}
                         id="code"
                         name="code"
                         type="text"
-                        required
                         value={formValues.code}
                         errorMessage={fieldError?.code}
                         onChange={(e) =>
@@ -181,7 +210,7 @@ export const Form = () => {
 
                     <Button
                         customClassName="xl:w-32"
-                        text="Create"
+                        text={buttonText}
                         type="submit"
                         isLoading={isLoading}
                     />
@@ -190,7 +219,7 @@ export const Form = () => {
 
             <Modal showModal={isOpenModal} setShowModal={setIsOpenModal}>
                 <div className="p-8 h-48 md:h-40 flex flex-col items-center gap-4">
-                    <h2 className="text-center font-bold text-lg text-cyan-600">Link created successfully</h2>
+                    <h2 className="text-center font-bold text-lg text-cyan-600">{successMessage}</h2>
 
                     <div className="flex items-center gap-4">
                         <p className="text-center border px-2 py-1 rounded-lg text-zinc-700 border-zinc-300 bg-gradient-to-b from-zinc-50 to-zinc-100">
@@ -203,7 +232,7 @@ export const Form = () => {
 
                     {isCopy && (
                         <span className="text-cyan-500 text-sm">
-                            Copied !!!
+                            {copyMessage}
                         </span>
                     )}
                 </div>

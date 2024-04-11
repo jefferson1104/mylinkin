@@ -11,8 +11,23 @@ import { useLinks } from "@/contexts/links-context";
 // UTILS
 import { createMetricLinks } from "@/utils/create-metric-links";
 
+// METRICS COMPONENT UTILS
+interface IMetrics {
+    title: string;
+    description: string;
+    tableHeader: string;
+    tableHeader2: string;
+    emptyMessage: string;
+};
+
 // METRICS COMPONENT
-export const Metrics = () => {
+export const Metrics = ({
+    title,
+    description,
+    tableHeader,
+    tableHeader2,
+    emptyMessage
+}: IMetrics) => {
     /* Hooks */
     const { registeredLinks, metrics, isLoadingLinks, isLoadingMetrics, errorLinksMetrics } = useLinks();
 
@@ -33,8 +48,8 @@ export const Metrics = () => {
             <table className="flex flex-col gap-2">
                 <thead className="w-full flex flex-col gap-2">
                     <tr className="flex justify-between w-60 md:w-96 text-sm md:text-base font-bold px-2 dark:text-dark-text text-light-text">
-                        <th>CODE</th>
-                        <th>CLICKS</th>
+                        <th>{tableHeader}</th>
+                        <th>{tableHeader2}</th>
                     </tr>
                 </thead>
                 <tbody className="w-full flex flex-col gap-2">
@@ -59,7 +74,7 @@ export const Metrics = () => {
         </div>
     );
 
-    const noRankedLinks = <p className="text-light-text">no links listed in the ranking.</p>;
+    const noRankedLinks = <p className="text-light-text">{emptyMessage}</p>;
 
     const renderRanking = errorLinksMetrics
         ? <CustomError />
@@ -70,8 +85,8 @@ export const Metrics = () => {
     /* Renders */
     return (
         <Card
-            title="Top #5"
-            description="This is the ranking of the top 5 most clicked shortened links."
+            title={title}
+            description={description}
             large
             component={isLoading && !errorLinksMetrics ? renderLoading : renderRanking}
         />

@@ -1,0 +1,63 @@
+{
+    "Navbar": {
+        "about": "Sobre"
+    },
+    "Hero": {
+        "title": "Crie e personalize seu próprio link encurtado",
+        "description": "é uma ferramenta gratuita para encurtar URLs e gerar links curtos. Permite criar um link encurtado facilitando o compartilhamento e o rastreamento da quantidade de cliques recebidos",
+        "developer": "Desenvolvido por SoaresDev"
+    },
+    "Form": {
+        "title": "Encurtador de URL simples e rápido!",
+        "description": "Insira a URL original e um código personalizável, por exemplo 'CODE', e crie seu link encurtado",
+        "inputUrlPlaceholder": "https://seulink.com",
+        "inputCodePlaceholder": "CODE",
+        "buttonText": "Criar",
+        "successMessage": "Link criado com sucesso",
+        "copyMessage": "Copiado !!!",
+        "urlFieldValidationMessages": {
+            "stringBase": "Deve ser uma string",
+            "stringEmpty": "É necessário digitar uma URL",
+            "stringMin": "Pelo menos 3 caracteres",
+            "stringUri": "Deve ser uma URL válida",
+            "anyRequired": "É necessário digitar uma URL"
+        },
+        "codeFieldValidationMessages": {
+            "stringBase": "Deve ser uma string",
+            "stringEmpty": "É necessário digitar um código",
+            "stringMin": "Pelo menos 3 caracteres",
+            "stringMax": "Máximo de 10 caracteres",
+            "anyRequired": "É necessário digitar um código"
+        }
+    },
+    "Counter": {
+        "description": "Essa é a quantidade de links encurtados que temos em nossa base de dados"
+    },
+    "MetricsLink": {
+        "title": "Verificar Link",
+        "description": "Você pode ver quantos cliques o link recebeu, quando foi criado e qual é o URL original",
+        "buttonText": "Verificar",
+        "buttonText2": "Verificar outro",
+        "createdAt": "Criado em",
+        "clicks": "Cliques",
+        "code": "Código",
+        "originalUrl": "URL Original"
+    },
+    "Metrics": {
+        "title": "Top #5",
+        "description": "Este é um ranking dos 5 links encurtados mais clicados",
+        "tableHeader": "CÓDIGO",
+        "tableHeader2": "CLIQUES",
+        "emptyMessage": "Nenhum link listado no ranking"
+    },
+    "About": {
+        "title": "Sobre Nós",
+        "description": "O MyLinkIn foi cuidadosamente desenvolvido com tecnologias de ponta para facilitar o compartilhamento de links importantes. Nosso propósito é tornar esse processo simples, rápido e eficiente, oferecendo links personalizados e curtos, ideais para compartilhamento em redes sociais e na internet em geral.",
+        "description2": "Além disso, nos preocupamos com a análise de desempenho. Oferecemos métricas detalhadas para que você saiba quantos cliques seus links compartilhados receberam. Uma grande preocupação com serviços semelhantes é a manutenção dos links encurtados. No MyLinkIn, garantimos a confiabilidade e a estabilidade dos seus links, para que você não tenha surpresas desagradáveis.",
+        "description3": "Aproveite o MyLinkIn, uma ferramenta criada com objetividade, simplicidade e, acima de tudo, confiabilidade."
+    },
+    "ContactUs": {
+        "title": "Contate-nos",
+        "description": "No Link acima ajude o MyLinkIn a crescer, entre em contato para sugestões, reporte um bug, reporte uma melhoria ou faça uma doação para nós"
+    }
+}

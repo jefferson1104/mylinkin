@@ -3,8 +3,16 @@
 // CONTEXTS
 import { useTheme } from "@/contexts/theme-context";
 
+// ABOUT US COMPONENT UTILS
+interface IAboutUs {
+    title: string;
+    description: string;
+    description2: string;
+    description3: string;
+}
+
 // ABOUT US COMPONENT
-export const AboutUs = () => {
+export const AboutUs = ({ title, description, description2, description3 }: IAboutUs) => {
     /* Hooks */
     const { theme } = useTheme();
 
@@ -18,15 +26,19 @@ export const AboutUs = () => {
                 className={`mt-2 animate-fade-up bg-clip-text ${titleStyles} text-center font-bold font-display text-3xl text-transparent drop-shadow-sm md:text-5xl md:leading-[3rem]`}
                 style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
             >
-                About Us
+                {title}
             </h2>
 
             <p className="text-light-text">
-                In a digital world where ease and security in sharing information are paramount, <span className="font-bold underline">MyLinkIn</span> emerged as an innovative solution. Our mission? To provide you with an easy and secure way to share shortened and customized links. We understand how important it is to keep these links active and functional over time, removing any worries about their future inaccessibility.
+                {description}
             </p>
 
             <p className="text-light-text">
-                Developed with the latest technologies and adhering to the best practices in web development, <span className="font-bold underline">MyLinkIn</span> stands out for its fast API and a streamlined interface. Our design is intuitive, ensuring you can create and share your links with ease, regardless of the device used.
+                {description2}
+            </p>
+
+            <p className="text-light-text">
+                {description3}
             </p>
         </div>
     );

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 // COMPONENTS
 import { ToggleTheme } from '@/components/ToggleTheme/ToggleTheme';
+import { ToggleLang } from "@/components/ToggleLang/ToggleLang";
 
 // CONTEXTS
 import { useTheme } from "@/contexts/theme-context";
@@ -11,10 +12,16 @@ import { useTheme } from "@/contexts/theme-context";
 // HOOKS
 import useScroll from "@/hooks/use-scroll";
 
+
+// NAVBAR COMPONENT UTILS
+interface INavbar {
+  text: string;
+}
+
 // NAVBAR COMPONENT
-export const Navbar = () => {
+export const Navbar = ({ text }: INavbar) => {
   /* Hooks */
-  const { theme} = useTheme();
+  const { theme } = useTheme();
   const scrolled = useScroll(50);
 
   /* Vars */
@@ -38,10 +45,12 @@ export const Navbar = () => {
 
         <div className="flex gap-4 items-center">
           <a href="/#about" className="text-lg text-light-text dark:text-dark-text hover:opacity-65 transition-all duration-300">
-            About
+            {text}
           </a>
 
           <ToggleTheme />
+
+          <ToggleLang />
         </div>
       </div>
     </nav>

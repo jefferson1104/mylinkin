@@ -14,6 +14,17 @@ import { ILinkMetric } from "@/interfaces/link";
 import { formatDayMonthYear } from "@/utils/date";
 
 // METRICS LINK COMPONENT UTILS
+interface IMetricsLink {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonText2: string;
+    createdAt: string;
+    clicks: string;
+    code: string;
+    originalUrl: string;
+};
+
 interface IMetricsLinkForm {
     code: string;
 };
@@ -23,7 +34,16 @@ export const initialValues = {
 };
 
 // METRICS LINK COMPONENT
-export const MetricsLink = () => {
+export const MetricsLink = ({
+    title,
+    description,
+    buttonText,
+    buttonText2,
+    createdAt,
+    clicks,
+    code,
+    originalUrl
+}: IMetricsLink) => {
     /* States */
     const [formValues, setFormValues] = useState<IMetricsLinkForm>(initialValues);
     const [fieldError, setFieldError] = useState<IFieldError>({});
@@ -127,7 +147,7 @@ export const MetricsLink = () => {
                 }
             />
             <Button
-                text="Create"
+                text={buttonText}
                 type="button"
                 onClick={getLinkMetricsHandler}
                 isLoading={false}
@@ -141,14 +161,14 @@ export const MetricsLink = () => {
 
         return (
             <div className="flex flex-col gap-2">
-                <div className="rounded-md bg-zinc-50 p-4 text-sm max-w-sm break-words flex flex-col gap-2">
-                    <p className="font-bold">Created at: <span className="font-normal">{formattedDate}</span></p>
-                    <p className="font-bold">Clicks: <span className="font-normal">{linkMetrics?.clicks}</span></p>
-                    <p className="font-bold">Code: <span className="font-normal">{linkMetrics?.code}</span></p>
-                    <p className="font-bold">Original URL: <span className="font-normal">{linkMetrics?.original_url}</span></p>
+                <div className="rounded-md border border-cyan-100 dark:border-dark-border bg-cyan-50 dark:bg-light-text text-light-text dark:text-dark-text p-4 text-sm max-w-sm break-words flex flex-col gap-2">
+                    <p className="font-bold">{createdAt}: <span className="font-normal">{formattedDate}</span></p>
+                    <p className="font-bold">{clicks}: <span className="font-normal">{linkMetrics?.clicks}</span></p>
+                    <p className="font-bold">{code}: <span className="font-normal">{linkMetrics?.code}</span></p>
+                    <p className="font-bold">{originalUrl}: <span className="font-normal">{linkMetrics?.original_url}</span></p>
                 </div>
 
-                <Button type="button" text="Another link" onClick={clearMetricsHandler}  />
+                <Button type="button" text={buttonText2} onClick={clearMetricsHandler}  />
             </div>
         );
     }
@@ -156,8 +176,8 @@ export const MetricsLink = () => {
     /* Renders */
     return (
         <Card
-            title="Your Link"
-            description="How many clicks it got, original URL,and when it was created."
+            title={title}
+            description={description}
             component={
                 linkMetrics ? renderLinkMetrics() : renderLinkMetricsForm
             }
