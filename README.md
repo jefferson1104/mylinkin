@@ -1,8 +1,7 @@
 <div align="center" style="margin-bottom: 20px;">
-    <div style="display: flex; align-items: center; justify-content: center;">
-        <h1>MyLinkIn</h1>
-        <img src="./packages/front-end/public/images/logo.svg" width="45" />
-    </div>
+  <div>
+    <h1>MyLinkIn</h1>
+  </div>
 
   <div align="center">
     <img alt="technology" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white">
@@ -28,8 +27,8 @@ MyLinkIn is a free URL shortening tool, developed with Node.js and React.js usin
 
 ### :cyclone: Project directories
 
-[BACK-END](https://github.com/jefferson1104/mylinkin/tree/main/packages/back-end)
-[FRONT-END](https://github.com/jefferson1104/mylinkin/tree/main/packages/front-end)
+- [BACK-END](https://github.com/jefferson1104/mylinkin/tree/main/packages/back-end)
+- [FRONT-END](https://github.com/jefferson1104/mylinkin/tree/main/packages/front-end)
 
 <div>
   <img src="./packages/front-end/public/images/banner.png" />
