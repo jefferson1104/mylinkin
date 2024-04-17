@@ -1,6 +1,6 @@
 <div align="center" style="margin-bottom: 20px;">
   <div>
-    <img src="./packages/front-end/public/images/banner.png" />
+    <img src="./public/images/banner.png" width="525" height="300" />
   </div>
 
   <div align="center">
